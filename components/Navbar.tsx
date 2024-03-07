@@ -9,7 +9,6 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { Button } from './ui/button'
