@@ -13,14 +13,15 @@ import {
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { Button } from './ui/button'
 import { ModeToggle } from './ModeToggle'
+import { useMediaQuery } from 'react-responsive'
 export function NavigationMenuDemo() {
+  const smDown = useMediaQuery({ maxWidth: 600 })
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <div className="flex flex-row items-center justify-between gap-20">
+        <div className="flex items-center justify-between gap-20">
           <div
-            id="divvv"
-            className="flex flex-row items-center justify-between gap-3"
+            className={`flex ${smDown ? 'flex-col' : 'flex-row'} items-center justify-between gap-3`}
           >
             <Avatar>
               <AvatarImage
@@ -60,7 +61,7 @@ export function NavigationMenuDemo() {
             </NavigationMenuItem>
           </div>
 
-          <div className="flex flex-row gap-2">
+          <div className="flex gap-3">
             <ModeToggle />
             <NavigationMenuItem>
               <Link href="/login" legacyBehavior passHref>
