@@ -10,7 +10,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
-import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { Button } from './ui/button'
 import { ModeToggle } from './ModeToggle'
 import { useMediaQuery } from 'react-responsive'
