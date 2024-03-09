@@ -18,119 +18,136 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { Label } from '@radix-ui/react-label'
-import { Input } from './ui/input'
 import { AlignJustify } from 'lucide-react'
 
 export function NavigationMenuDemo() {
   const smDown = useMediaQuery({ maxWidth: 600 })
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <div className="flex items-center justify-between gap-20">
-          <div
-            className={`flex ${smDown ? 'flex-col' : 'flex-row'} items-center justify-between gap-3`}
-          >
-            <Avatar>
-              <AvatarImage
-                src="/logo.png"
-                alt="logo"
-                width="100px"
-                height="100px"
-              />
-            </Avatar>
-            <NavigationMenuItem>
-              <Link href="/campeonatos" legacyBehavior passHref>
-                <NavigationMenuLink>
-                  <Button variant="secondary">Campeonatos</Button>
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/horarios" legacyBehavior passHref>
-                <NavigationMenuLink>
-                  <Button variant="secondary">Horários</Button>
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/loja" legacyBehavior passHref>
-                <NavigationMenuLink>
-                  <Button variant="secondary">Loja</Button>
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/lanchonete" legacyBehavior passHref>
-                <NavigationMenuLink>
-                  <Button variant="secondary">Lanchonete</Button>
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </div>
+    <>
+      {smDown ? (
+        <Sheet>
+          <SheetTrigger className="m-3 flex flex-row-reverse" asChild>
+            <Button variant="outline">
+              <AlignJustify />
+            </Button>
+          </SheetTrigger>
+          <SheetContent className="w-[80%]">
+            <SheetHeader>
+              <h4 className='text-xl font-semibold tracking-tight"'>Menu</h4>
+            </SheetHeader>
+            <NavigationMenu className="w-full mb-10 mt-3">
+              <NavigationMenuList className="flex flex-col gap-3 w-full">
+                <NavigationMenuItem className="w-full">
+                  <Link href="/campeonatos" legacyBehavior passHref>
+                    <Button className="w-full" variant="default">
+                      Campeonatos
+                    </Button>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="w-full">
+                  <Link href="/horarios" legacyBehavior passHref>
+                    <Button className="w-full" variant="default">
+                      Horários
+                    </Button>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="w-full">
+                  <Link href="/loja" legacyBehavior passHref>
+                    <Button className="w-full" variant="default">
+                      Loja
+                    </Button>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="w-full">
+                  <Link href="/lanchonete" legacyBehavior passHref>
+                    <Button className="w-full" variant="default">
+                      Lanchonete
+                    </Button>
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            <SheetFooter>
+              <SheetClose>
+                <Button variant="outline">Fechar</Button>
+              </SheetClose>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
+      ) : (
+        <NavigationMenu>
+          <NavigationMenuList>
+            <div className="flex items-center justify-between gap-20">
+              <div
+                className={`flex ${smDown ? 'flex-col' : 'flex-row'} items-center justify-between gap-3`}
+              >
+                <Avatar>
+                  <AvatarImage
+                    src="/logo.png"
+                    alt="logo"
+                    width="100px"
+                    height="100px"
+                  />
+                </Avatar>
+                <NavigationMenuItem className="w-full">
+                  <Link href="/campeonatos" legacyBehavior passHref>
+                    <NavigationMenuLink>
+                      <div className="w-full">
+                        <Button className="w-full" variant="secondary">
+                          Campeonatos
+                        </Button>
+                      </div>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="w-full">
+                  <Link href="/horarios" legacyBehavior passHref>
+                    <NavigationMenuLink>
+                      <Button className="w-full" variant="secondary">
+                        Horários
+                      </Button>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="w-full">
+                  <Link href="/loja" legacyBehavior passHref>
+                    <NavigationMenuLink>
+                      <Button className="w-full" variant="secondary">
+                        Loja
+                      </Button>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem className="w-full">
+                  <Link href="/lanchonete" legacyBehavior passHref>
+                    <NavigationMenuLink>
+                      <Button className="w-full" variant="secondary">
+                        Lanchonete
+                      </Button>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              </div>
 
-          <div className="flex gap-3">
-            <ModeToggle />
-            <NavigationMenuItem>
-              <Link href="/login" legacyBehavior passHref>
-                <NavigationMenuLink>
-                  <Button variant="default">Login</Button>
-                </NavigationMenuLink>
-              </Link>
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline">
-                    <AlignJustify />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent>
-                  <SheetHeader>
-                    <SheetTitle>Edit profile</SheetTitle>
-                    <SheetDescription>
-                      Make changes to your profile here. Click save when youre
-                      done.
-                    </SheetDescription>
-                  </SheetHeader>
-                  <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="name" className="text-right">
-                        Name
-                      </Label>
-                      <Input
-                        id="name"
-                        value="Pedro Duarte"
-                        className="col-span-3"
-                      />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                      <Label htmlFor="username" className="text-right">
-                        Username
-                      </Label>
-                      <Input
-                        id="username"
-                        value="@peduarte"
-                        className="col-span-3"
-                      />
-                    </div>
-                  </div>
-                  <SheetFooter>
-                    <SheetClose asChild>
-                      <Button type="submit">Save changes</Button>
-                    </SheetClose>
-                  </SheetFooter>
-                </SheetContent>
-              </Sheet>
-            </NavigationMenuItem>
-          </div>
-        </div>
-      </NavigationMenuList>
-    </NavigationMenu>
+              <div className="flex gap-3">
+                <ModeToggle />
+                <NavigationMenuItem className="flex items-center">
+                  <Link href="/login" legacyBehavior passHref>
+                    <NavigationMenuLink>
+                      <Button variant="default">Login</Button>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              </div>
+            </div>
+          </NavigationMenuList>
+        </NavigationMenu>
+      )}
+    </>
   )
 }
 
