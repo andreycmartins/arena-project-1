@@ -25,10 +25,10 @@ import {
 import { AlignJustify } from 'lucide-react'
 
 export function NavigationMenuDemo() {
-  const smDown = useMediaQuery({ maxWidth: 600 })
+  const mdDown = useMediaQuery({ maxWidth: 750 })
   return (
     <>
-      {smDown ? (
+      {mdDown ? (
         <Sheet>
           <SheetTrigger className="m-3 flex flex-row-reverse" asChild>
             <Button variant="outline">
@@ -79,73 +79,67 @@ export function NavigationMenuDemo() {
           </SheetContent>
         </Sheet>
       ) : (
-        <NavigationMenu>
-          <NavigationMenuList>
-            <div className="flex items-center justify-between gap-20">
-              <div
-                className={`flex ${smDown ? 'flex-col' : 'flex-row'} items-center justify-between gap-3`}
-              >
-                <Avatar>
-                  <AvatarImage
-                    src="/logo.png"
-                    alt="logo"
-                    width="100px"
-                    height="100px"
-                  />
-                </Avatar>
-                <NavigationMenuItem className="w-full">
-                  <Link href="/campeonatos" legacyBehavior passHref>
-                    <NavigationMenuLink>
-                      <div className="w-full">
+        <div className="flex justify-center pb-4">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <div className="flex  items-center justify-between gap-20">
+                <div
+                  className={`flex ${mdDown ? 'flex-col' : 'flex-row'} items-center justify-between gap-3`}
+                >
+                  <NavigationMenuItem className="w-full">
+                    <Link href="/campeonatos" legacyBehavior passHref>
+                      <NavigationMenuLink>
+                        <div className="w-full">
+                          <Button className="w-full" variant="secondary">
+                            Campeonatos
+                          </Button>
+                        </div>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className="w-full">
+                    <Link href="/horarios" legacyBehavior passHref>
+                      <NavigationMenuLink>
                         <Button className="w-full" variant="secondary">
-                          Campeonatos
+                          Horários
                         </Button>
-                      </div>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="w-full">
-                  <Link href="/horarios" legacyBehavior passHref>
-                    <NavigationMenuLink>
-                      <Button className="w-full" variant="secondary">
-                        Horários
-                      </Button>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="w-full">
-                  <Link href="/loja" legacyBehavior passHref>
-                    <NavigationMenuLink>
-                      <Button className="w-full" variant="secondary">
-                        Loja
-                      </Button>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="w-full">
-                  <Link href="/lanchonete" legacyBehavior passHref>
-                    <NavigationMenuLink>
-                      <Button className="w-full" variant="secondary">
-                        Lanchonete
-                      </Button>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              </div>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className="w-full">
+                    <Link href="/loja" legacyBehavior passHref>
+                      <NavigationMenuLink>
+                        <Button className="w-full" variant="secondary">
+                          Loja
+                        </Button>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className="w-full">
+                    <Link href="/lanchonete" legacyBehavior passHref>
+                      <NavigationMenuLink>
+                        <Button className="w-full" variant="secondary">
+                          Lanchonete
+                        </Button>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                </div>
 
-              <div className="flex gap-3">
-                <ModeToggle />
-                <NavigationMenuItem className="flex items-center">
-                  <Link href="/login" legacyBehavior passHref>
-                    <NavigationMenuLink>
-                      <Button variant="default">Login</Button>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
+                <div className="flex gap-3">
+                  <ModeToggle />
+                  <NavigationMenuItem className="flex items-center">
+                    <Link href="/login" legacyBehavior passHref>
+                      <NavigationMenuLink>
+                        <Button variant="default">Login</Button>
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                </div>
               </div>
-            </div>
-          </NavigationMenuList>
-        </NavigationMenu>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
       )}
     </>
   )

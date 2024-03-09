@@ -1,20 +1,23 @@
 'use client'
 
+import CardImage from '@/components/CardImage'
 import { Card, Inset, Strong, Text } from '@radix-ui/themes'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 export default function Home() {
-  const smDown = useMediaQuery({ maxWidth: 600 })
+  const mdDown = useMediaQuery({ maxWidth: 750 })
   return (
     <div className="flex justify-center w-screen">
       <div className="flex justify-center flex-col p-1 m-1 max-w-6xl">
-        <div className={`flex ${smDown ? 'flex-col' : 'flex-row'}`}>
-          <Image
-            className=""
-            src="/logo.png"
-            alt="Logo"
-            width={300}
-            height={300}
+        <div
+          className={`flex gap-5 items-center ${mdDown ? 'flex-col' : 'flex-row'}`}
+        >
+          <Image src="/logo.png" alt="Logo" width={300} height={300} />
+          <CardImage
+            title="Card Title"
+            description="Card Description"
+            image="/molusco.jpg"
+            footer="Eis o footer"
           />
           <Card size="2" style={{ maxWidth: 240 }}>
             <Inset clip="padding-box" side="top" pb="current">
