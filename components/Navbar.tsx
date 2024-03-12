@@ -78,7 +78,7 @@ export function NavigationMenuDemo() {
           </SheetContent>
         </Sheet>
       ) : (
-        <div className="flex justify-center pb-4">
+        <div className="flex justify-center pb-4 mt-3">
           <NavigationMenu>
             <NavigationMenuList>
               <div className="flex  items-center justify-between gap-20">
