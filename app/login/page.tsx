@@ -115,6 +115,9 @@ export default function Component() {
                     Esqueci a senha
                   </div>
                 </div>
+                <Button className="w-full mt-4" type="submit">
+                  Faça login com o google
+                </Button>
               </CardContent>
             </Card>
           </form>
