@@ -11,7 +11,7 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { Button } from './ui/button'
-import { ModeToggle } from './ModeToggle'
+// import { ModeToggle } from './ModeToggle'
 import { useMediaQuery } from 'react-responsive'
 import {
   Sheet,
@@ -126,7 +126,7 @@ export function NavigationMenuDemo() {
                 </div>
 
                 <div className="flex gap-3">
-                  <ModeToggle />
+                  {/* <ModeToggle /> */}
                   <NavigationMenuItem className="flex items-center">
                     <Link href="/login" legacyBehavior passHref>
                       <NavigationMenuLink>

@@ -4,6 +4,7 @@ import CardImage from '@/components/CardImage'
 import { Card, Inset, Strong, Text } from '@radix-ui/themes'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
+
 export default function Home() {
   const mdDown = useMediaQuery({ maxWidth: 750 })
   return (

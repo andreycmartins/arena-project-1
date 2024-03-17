@@ -5,17 +5,20 @@ import { ThemeProvider } from '@/components/ui/theme-provider'
 import { NavigationMenuDemo } from '@/components/Navbar'
 import { Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
-import { getPathname } from '@/lib/useClientUtils'
+import { GetPathname } from '@/lib/useClientUtils'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const pathname = getPathname()
+  const pathname = GetPathname()
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body>
+      <body className={`${inter.className}`}>
         <Theme>
           <ThemeProvider attribute="class" defaultTheme="system">
             {pathname !== '/login' && <NavigationMenuDemo />}
