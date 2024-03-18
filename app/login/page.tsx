@@ -120,7 +120,11 @@ export default function Component() {
                     Esqueci a senha
                   </div>
                 </div>
-                <Button className="w-full mt-4" onClick={handleLoginClick}>
+                <Button
+                  type="button"
+                  className="w-full mt-4"
+                  onClick={handleLoginClick}
+                >
                   Faça login com o google
                 </Button>
               </CardContent>

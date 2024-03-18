@@ -22,9 +22,18 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { AlignJustify } from 'lucide-react'
+import { useSession, signOut } from 'next-auth/react'
+
+async function handleLogoutClick() {
+  await signOut()
+}
 
 export function NavigationMenuDemo() {
   const mdDown = useMediaQuery({ maxWidth: 750 })
+  const { data } = useSession()
+
+  console.log(data?.user ?? 'nao logado')
+
   return (
     <>
       {mdDown ? (
@@ -125,16 +134,15 @@ export function NavigationMenuDemo() {
                   </NavigationMenuItem>
                 </div>
 
-                <div className="flex gap-3">
-                  {/* <ModeToggle /> */}
-                  <NavigationMenuItem className="flex items-center">
-                    <Link href="/login" legacyBehavior passHref>
-                      <NavigationMenuLink>
-                        <Button variant="default">Login</Button>
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
-                </div>
+                {!data?.user ? (
+                  <Link href="/login" legacyBehavior passHref>
+                    <Button variant="default">Login</Button>
+                  </Link>
+                ) : (
+                  <Button variant="destructive" onClick={handleLogoutClick}>
+                    Logout
+                  </Button>
+                )}
               </div>
             </NavigationMenuList>
           </NavigationMenu>
