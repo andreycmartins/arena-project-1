@@ -23,6 +23,7 @@ import {
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
+import Image from 'next/image'
 
 const LoginFormSchema = z.object({
   email: z.string().email({ message: 'Digite um e-mail inválido' }).min(1, {
@@ -36,6 +37,8 @@ const LoginFormSchema = z.object({
 export type LoginFormInputs = z.infer<typeof LoginFormSchema>
 
 export default function Component() {
+  const smDown = useMediaQuery({ maxWidth: 600 })
+
   const form = useForm<LoginFormInputs>({
     resolver: zodResolver(LoginFormSchema),
     defaultValues: {
@@ -48,19 +51,11 @@ export default function Component() {
     console.log(data)
   }
 
-  const smDown = useMediaQuery({ maxWidth: 600 })
-
   const handleLoginClick = async () => {
     await signIn()
   }
   return (
     <div className="relative">
-      <Link href="/">
-        <Button variant="outline" className="m-5">
-          <ArrowLeft className="mr-3" />
-          Retornar para página inicial
-        </Button>
-      </Link>
       <div className="flex w-full justify-center items-center h-screen">
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -68,6 +63,12 @@ export default function Component() {
               className={smDown ? 'w-[100%]' : ''}
               style={{ border: 'none', borderRadius: smDown ? '0' : '' }}
             >
+              <Link href="/">
+                <Button variant="outline" className="m-5">
+                  <ArrowLeft className="mr-3" />
+                  Retornar para página inicial
+                </Button>
+              </Link>
               <CardHeader className="space-y-1">
                 <CardTitle className="text-2xl font-bold">Login</CardTitle>
                 <CardDescription>
@@ -125,7 +126,14 @@ export default function Component() {
                   className="w-full mt-4"
                   onClick={handleLoginClick}
                 >
-                  Faça login com o google
+                  Faça login com o Google
+                  <Image
+                    className="ml-1"
+                    alt="google"
+                    src="/google.png"
+                    width={16}
+                    height={16}
+                  />
                 </Button>
               </CardContent>
             </Card>

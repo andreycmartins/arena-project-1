@@ -32,8 +32,6 @@ export function NavigationMenuDemo() {
   const mdDown = useMediaQuery({ maxWidth: 750 })
   const { data } = useSession()
 
-  console.log(data?.user ?? 'nao logado')
-
   return (
     <>
       {mdDown ? (
@@ -51,32 +49,48 @@ export function NavigationMenuDemo() {
               <NavigationMenuList className="flex flex-col gap-3 w-full">
                 <NavigationMenuItem className="w-full">
                   <Link href="/campeonatos" legacyBehavior passHref>
-                    <Button className="w-full" variant="default">
+                    <Button className="w-full" variant="secondary">
                       Campeonatos
                     </Button>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="w-full">
                   <Link href="/horarios" legacyBehavior passHref>
-                    <Button className="w-full" variant="default">
+                    <Button className="w-full" variant="secondary">
                       Horários
                     </Button>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="w-full">
                   <Link href="/loja" legacyBehavior passHref>
-                    <Button className="w-full" variant="default">
+                    <Button className="w-full" variant="secondary">
                       Loja
                     </Button>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem className="w-full">
                   <Link href="/lanchonete" legacyBehavior passHref>
-                    <Button className="w-full" variant="default">
+                    <Button className="w-full" variant="secondary">
                       Lanchonete
                     </Button>
                   </Link>
                 </NavigationMenuItem>
+
+                {!data?.user ? (
+                  <NavigationMenuItem className="w-full">
+                    <Link href="/login" legacyBehavior passHref>
+                      <Button className="w-full" variant="default">
+                        Login
+                      </Button>
+                    </Link>
+                  </NavigationMenuItem>
+                ) : (
+                  <NavigationMenuItem className="w-full">
+                    <Button variant="destructive" onClick={handleLogoutClick}>
+                      Logout
+                    </Button>
+                  </NavigationMenuItem>
+                )}
               </NavigationMenuList>
             </NavigationMenu>
             <SheetFooter>
