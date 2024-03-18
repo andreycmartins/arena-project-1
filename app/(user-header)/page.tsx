@@ -2,10 +2,15 @@
 
 import CardImage from '@/components/CardImage'
 import { Card, Inset, Strong, Text } from '@radix-ui/themes'
+import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 
 export default function Home() {
+  const { data } = useSession()
+
+  console.log(data?.user?.name)
+
   const mdDown = useMediaQuery({ maxWidth: 750 })
   return (
     <div className="flex justify-center w-screen">

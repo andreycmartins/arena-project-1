@@ -7,6 +7,7 @@ import { Theme } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 import { GetPathname } from '@/lib/useClientUtils'
 import { Inter } from 'next/font/google'
+import Authprovider from '@/providers/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,12 +20,14 @@ export default function RootLayout({
   return (
     <html lang="pt-br" suppressHydrationWarning>
       <body className={`${inter.className}`}>
-        <Theme>
-          <ThemeProvider attribute="class" defaultTheme="system">
-            {pathname !== '/login' && <NavigationMenuDemo />}
-            {children}
-          </ThemeProvider>
-        </Theme>
+        <Authprovider>
+          <Theme>
+            <ThemeProvider attribute="class" defaultTheme="system">
+              {pathname !== '/login' && <NavigationMenuDemo />}
+              {children}
+            </ThemeProvider>
+          </Theme>
+        </Authprovider>
       </body>
     </html>
   )

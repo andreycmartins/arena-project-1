@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/form'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 
 const LoginFormSchema = z.object({
   email: z.string().email({ message: 'Digite um e-mail inválido' }).min(1, {
@@ -48,6 +49,10 @@ export default function Component() {
   }
 
   const smDown = useMediaQuery({ maxWidth: 600 })
+
+  const handleLoginClick = async () => {
+    await signIn()
+  }
   return (
     <div className="relative">
       <Link href="/">
@@ -115,7 +120,7 @@ export default function Component() {
                     Esqueci a senha
                   </div>
                 </div>
-                <Button className="w-full mt-4" type="submit">
+                <Button className="w-full mt-4" onClick={handleLoginClick}>
                   Faça login com o google
                 </Button>
               </CardContent>
