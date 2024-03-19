@@ -51,8 +51,10 @@ export default function Component() {
     console.log(data)
   }
 
-  const handleLoginClick = async () => {
-    await signIn()
+  const handleLoginGoogle = async () => {
+    await signIn('google', {
+      callbackUrl: '/admin',
+    })
   }
   return (
     <div className="relative">
@@ -124,7 +126,7 @@ export default function Component() {
                 <Button
                   type="button"
                   className="w-full mt-4"
-                  onClick={handleLoginClick}
+                  onClick={handleLoginGoogle}
                 >
                   Faça login com o Google
                   <Image
