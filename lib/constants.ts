@@ -1,7 +1,6 @@
 import { BookOpenCheck, LayoutDashboard } from 'lucide-react'
-import { type NavItem } from '@/types'
 
-export const NavItems: NavItem[] = [
+export const NavItems = [
   {
     title: 'Dashboard',
     icon: LayoutDashboard,

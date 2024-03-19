@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 
+import { type NavItem } from '@/types'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { useSidebar } from '@/hooks/useSidebar'
@@ -16,7 +17,7 @@ import { useEffect, useState } from 'react'
 import { ChevronDownIcon } from 'lucide-react'
 
 interface SideNavProps {
-  items: any[]
+  items: NavItem[]
   setOpen?: (open: boolean) => void
   className?: string
 }
