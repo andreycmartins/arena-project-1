@@ -1,9 +1,3 @@
-'use client'
-
 export default function Admin() {
-  return (
-    <div>
-      <h1>Admin page</h1>
-    </div>
-  )
+  return <h1>admin page</h1>
 }

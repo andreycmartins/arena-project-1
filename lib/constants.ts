@@ -1,10 +1,17 @@
-import { BookOpenCheck, LayoutDashboard } from 'lucide-react'
+import { BookOpenCheck, LayoutDashboard, Settings } from 'lucide-react'
+import { type NavItem } from '@/types'
 
-export const NavItems = [
+export const NavItems: NavItem[] = [
   {
     title: 'Dashboard',
     icon: LayoutDashboard,
-    href: '/',
+    href: '/admin',
+    color: 'text-sky-500',
+  },
+  {
+    title: 'Configurações',
+    icon: Settings,
+    href: '/admin/config',
     color: 'text-sky-500',
   },
   {
