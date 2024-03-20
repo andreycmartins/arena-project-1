@@ -105,7 +105,7 @@ export function SideNav({ items, setOpen, className, isOpen }: SideNavProps) {
             key={item.title}
             href={item.href}
             onClick={() => {
-              if (setOpen) setOpen(false)
+              setOpenItem(openItem)
             }}
             className={cn(
               buttonVariants({ variant: 'outline' }),
