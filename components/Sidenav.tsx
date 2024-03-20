@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
 
-import { type NavItem } from '@/types'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { useSidebar } from '@/hooks/useSidebar'
 import { buttonVariants } from '@/components/ui/button'
 
 import {
@@ -16,14 +16,14 @@ import { useEffect, useState } from 'react'
 import { ChevronDownIcon } from 'lucide-react'
 
 interface SideNavProps {
-  items: NavItem[]
+  items: any[]
   setOpen?: (open: boolean) => void
   className?: string
-  isOpen: boolean
 }
 
-export function SideNav({ items, setOpen, className, isOpen }: SideNavProps) {
+export function SideNav({ items, setOpen, className }: SideNavProps) {
   const path = usePathname()
+  const { isOpen } = useSidebar()
   const [openItem, setOpenItem] = useState('')
   const [lastOpenItem, setLastOpenItem] = useState('')
 
@@ -51,7 +51,7 @@ export function SideNav({ items, setOpen, className, isOpen }: SideNavProps) {
             <AccordionItem value={item.title} className="border-none ">
               <AccordionTrigger
                 className={cn(
-                  buttonVariants({ variant: 'outline' }),
+                  buttonVariants({ variant: 'ghost' }),
                   'group relative flex h-12 justify-between px-4 py-2 text-base duration-200 hover:bg-muted hover:no-underline',
                 )}
               >
@@ -80,7 +80,7 @@ export function SideNav({ items, setOpen, className, isOpen }: SideNavProps) {
                       if (setOpen) setOpen(false)
                     }}
                     className={cn(
-                      buttonVariants({ variant: 'outline' }),
+                      buttonVariants({ variant: 'ghost' }),
                       'group relative flex h-12 justify-start gap-x-3',
                       path === child.href &&
                         'bg-muted font-bold hover:bg-muted',
@@ -108,7 +108,7 @@ export function SideNav({ items, setOpen, className, isOpen }: SideNavProps) {
               if (setOpen) setOpen(false)
             }}
             className={cn(
-              buttonVariants({ variant: 'outline' }),
+              buttonVariants({ variant: 'ghost' }),
               'group relative flex h-12 justify-start',
               path === item.href && 'bg-muted font-bold hover:bg-muted',
             )}
