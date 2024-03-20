@@ -13,7 +13,15 @@ export default function RootLayout({
       <body>
         <div className="flex flex-row">
           <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} className="fixed" />
-          <main className={isOpen ? 'pl-72' : 'pl-20'}>{children}</main>
+          <main
+            className={
+              isOpen
+                ? 'pl-[285px] transition-all duration-500'
+                : 'pl-[95px] transition-all duration-500'
+            }
+          >
+            {children}
+          </main>
         </div>
       </body>
     </html>

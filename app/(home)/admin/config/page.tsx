@@ -1,6 +1,6 @@
 const Config = () => {
   return (
-    <div className="ml-5">
+    <div>
       <h1>config page</h1>
       <h1>config page</h1>
       <h1>config page</h1>

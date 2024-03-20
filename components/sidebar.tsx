@@ -32,7 +32,7 @@ export default function Sidebar({
       className={cn(
         `relative hidden h-screen border-r md:block`,
         status && 'duration-500',
-        isOpen ? 'w-72' : 'w-[78px]',
+        isOpen ? 'w-[270px]' : 'w-[78px]',
         className,
       )}
     >
@@ -45,12 +45,7 @@ export default function Sidebar({
       />
       <div className="space-y-4 py-4">
         <div className="flex justify-center">
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={isOpen ? 128 : 64}
-            height={isOpen ? 128 : 64}
-          />
+          <Image src="/logo.png" alt="logo" width={128} height={128} />
         </div>
         <div className="px-3 py-2">
           <div className="mt-3 space-y-1">
