@@ -32,7 +32,7 @@ export default function Sidebar({
       className={cn(
         `relative hidden h-screen border-r md:block`,
         status && 'duration-500',
-        isOpen ? 'w-[270px]' : 'w-[78px]',
+        isOpen ? 'w-[285px]' : 'w-[80px]',
         className,
       )}
     >
