@@ -6,16 +6,17 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { OpeningHours, PrismaClient } from '@prisma/client'
+import { PrismaClient, SnackshopOpeningHours } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
 export async function OpeningHours() {
-  const openingHours: OpeningHours[] = await prisma.openingHours.findMany({
-    orderBy: {
-      order: 'asc',
-    },
-  })
+  const snackshopOpeningHours: SnackshopOpeningHours[] =
+    await prisma.snackshopOpeningHours.findMany({
+      orderBy: {
+        order: 'asc',
+      },
+    })
 
   return (
     <div className="flex flex-col items-center">
@@ -29,11 +30,13 @@ export async function OpeningHours() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {openingHours.map((openingHour) => (
-            <TableRow key={openingHour.day}>
-              <TableCell className="font-medium">{openingHour.day}</TableCell>
-              <TableCell>{openingHour.opening}</TableCell>
-              <TableCell>{openingHour.closure}</TableCell>
+          {snackshopOpeningHours.map((snackshopOpeningHour) => (
+            <TableRow key={snackshopOpeningHour.day}>
+              <TableCell className="font-medium">
+                {snackshopOpeningHour.day}
+              </TableCell>
+              <TableCell>{snackshopOpeningHour.opening}</TableCell>
+              <TableCell>{snackshopOpeningHour.closure}</TableCell>
             </TableRow>
           ))}
         </TableBody>

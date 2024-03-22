@@ -42,7 +42,7 @@ model Arena {
   updatedAt         DateTime @updatedAt
 }
 
-model OpeningHours {
+model SnackshopOpeningHours {
   id        String   @id @default(uuid())
   day       String
   opening   String
@@ -50,6 +50,14 @@ model OpeningHours {
   order     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model SnackshopMenu {
+  id     String  @id @default(uuid())
+  image  String?
+  name   String
+  price  Decimal @db.Money
+  active Boolean
 }
 
 model Account {
