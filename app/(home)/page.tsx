@@ -1,6 +1,7 @@
 'use client'
 
 import CardImage from '@/components/CardImage'
+import { OpeningHours } from '@/components/OpeningHours'
 import { Card, Inset, Strong, Text } from '@radix-ui/themes'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
@@ -45,6 +46,9 @@ export default function Home() {
               displayed.
             </Text>
           </Card>
+        </div>
+        <div className="max-w-[50%]">
+          <OpeningHours />
         </div>
       </div>
     </div>

@@ -12,11 +12,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/subnav-accordion'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ChevronDownIcon } from 'lucide-react'
+import { type NavItem } from '@/types'
 
 interface SideNavProps {
-  items: any[]
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-nocheck
+  items: NavItem[]
   setOpen?: (open: boolean) => void
   className?: string
 }
