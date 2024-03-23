@@ -21,3 +21,5 @@ export const getSnackshopMenu = async () => {
   const snacks: SnackshopMenu[] = await db.snackshopMenu.findMany()
   return snacks
 }
+
+export async function getSnackshopOpeningHours() {}
