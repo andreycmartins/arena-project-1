@@ -2,20 +2,16 @@
 
 import CardImage from '@/components/CardImage'
 import { OpeningHours } from '@/components/OpeningHours'
+import { SnackshopMenu } from '@/components/SnackshopMenu'
 import { Card, Inset, Strong, Text } from '@radix-ui/themes'
-import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 
 export default function Home() {
-  const { data } = useSession()
-
-  console.log(data?.user?.name)
-
   const mdDown = useMediaQuery({ maxWidth: 750 })
   return (
     <div className="flex justify-center w-screen">
-      <div className="flex justify-center flex-col p-1 m-1 max-w-6xl">
+      <div className="flex justify-center gap-5 flex-col p-1 m-1 max-w-6xl">
         <div
           className={`flex gap-5 items-center ${mdDown ? 'flex-col' : 'flex-row'}`}
         >
@@ -47,8 +43,12 @@ export default function Home() {
             </Text>
           </Card>
         </div>
-        <div className="max-w-[50%]">
-          <OpeningHours />
+        <div className="flex flex-col gap-3 bg-gray-500">
+          <h1 className="text-center">Petiscaria</h1>
+          <div className="flex flex-row gap-3">
+            <OpeningHours />
+            <SnackshopMenu />
+          </div>
         </div>
       </div>
     </div>

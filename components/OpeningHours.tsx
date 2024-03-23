@@ -6,18 +6,10 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { PrismaClient, SnackshopOpeningHours } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { getOpeningHours } from '@/lib/PrismaService'
 
 export async function OpeningHours() {
-  const snackshopOpeningHours: SnackshopOpeningHours[] =
-    await prisma.snackshopOpeningHours.findMany({
-      orderBy: {
-        order: 'asc',
-      },
-    })
-
+  const snackshopOpeningHours = await getOpeningHours()
   return (
     <div className="flex flex-col items-center">
       <h1>Horário de funcionamento</h1>
