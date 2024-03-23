@@ -1,23 +1,23 @@
-import {
-  PrismaClient,
-  SnackshopMenu,
-  SnackshopOpeningHours,
-} from '@prisma/client'
+import { SnackshopMenu } from '@prisma/client'
+import { db } from './prisma'
 
-const prisma = new PrismaClient()
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const snacks = await db.snackshopMenu.findMany
 
-export async function getOpeningHours() {
-  const snackshopOpeningHours: SnackshopOpeningHours[] =
-    await prisma.snackshopOpeningHours.findMany({
-      orderBy: {
-        order: 'asc',
-      },
-    })
+//   const snackshopOpeningHours = await db.snackshopOpeningHours.findMany({
+//     orderBy: {
+//       order: 'asc',
+//     },
+//   })
+//   return {
+//     props: {
+//       snacks,
+//       snackshopOpeningHours,
+//     },
+//   }
+// }
 
-  return snackshopOpeningHours
-}
-
-export async function getSnackshopMenus() {
-  const snacks: SnackshopMenu[] = await prisma.snackshopMenu.findMany()
+export const getSnackshopMenu = async () => {
+  const snacks: SnackshopMenu[] = await db.snackshopMenu.findMany()
   return snacks
 }

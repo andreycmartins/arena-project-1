@@ -1,10 +1,10 @@
-import { getSnackshopMenus } from '@/lib/PrismaService'
+import { db } from '@/lib/prisma'
 import { currencyFormatter } from '@/lib/utils'
 import { Card, Inset, Strong, Text } from '@radix-ui/themes'
 import Image from 'next/image'
 
-export async function SnackshopMenu() {
-  const snacks = await getSnackshopMenus()
+export async function SnackshopMenuTable() {
+  const snacks = await db.snackshopMenu.findMany()
 
   return (
     <>
