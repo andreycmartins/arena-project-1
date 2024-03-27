@@ -24,9 +24,9 @@ import {
 import { AlignJustify } from 'lucide-react'
 import { useSession, signOut } from 'next-auth/react'
 
-async function handleLogoutClick() {
-  await signOut()
-}
+// async function handleLogoutClick() {
+//   await signOut()
+// }
 
 export function NavigationMenuDemo() {
   const mdDown = useMediaQuery({ maxWidth: 750 })
@@ -86,7 +86,10 @@ export function NavigationMenuDemo() {
                   </NavigationMenuItem>
                 ) : (
                   <NavigationMenuItem className="w-full">
-                    <Button variant="destructive" onClick={handleLogoutClick}>
+                    <Button
+                      variant="destructive"
+                      // onClick={handleLogoutClick}
+                    >
                       Logout
                     </Button>
                   </NavigationMenuItem>
@@ -153,7 +156,10 @@ export function NavigationMenuDemo() {
                     <Button variant="default">Login</Button>
                   </Link>
                 ) : (
-                  <Button variant="destructive" onClick={handleLogoutClick}>
+                  <Button
+                    variant="destructive"
+                    // onClick={handleLogoutClick}
+                  >
                     Logout
                   </Button>
                 )}

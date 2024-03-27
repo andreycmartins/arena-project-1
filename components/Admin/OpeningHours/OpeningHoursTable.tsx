@@ -5,11 +5,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { getSnackshopOpeningHours } from '@/lib/PrismaService'
 
 export async function OpeningHoursTable() {
-  getSnackshopOpeningHours()
-
   return (
     <div className="flex flex-col items-center">
       <h1>Horário de funcionamento</h1>

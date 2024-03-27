@@ -51,11 +51,11 @@ export default function Component() {
     console.log(data)
   }
 
-  const handleLoginGoogle = async () => {
-    await signIn('google', {
-      callbackUrl: '/admin',
-    })
-  }
+  // const handleLoginGoogle = async () => {
+  //   await signIn('google', {
+  //     callbackUrl: '/admin',
+  //   })
+  // }
   return (
     <div className="relative">
       <div className="flex w-full justify-center items-center h-screen">
@@ -126,7 +126,7 @@ export default function Component() {
                 <Button
                   type="button"
                   className="w-full mt-4"
-                  onClick={handleLoginGoogle}
+                  // onClick={handleLoginGoogle}
                 >
                   Faça login com o Google
                   <Image
