@@ -1,6 +1,6 @@
 'use client'
 import { EditOpeningHours } from '@/components/Admin/OpeningHours/EditOpeningHourrs'
-import { OpeningHoursTable } from '@/components/Admin/OpeningHours/OpeningHoursTable'
+import OpeningHoursTable from '@/components/Admin/OpeningHours/OpeningHoursTable'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 

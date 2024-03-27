@@ -1,22 +1,11 @@
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
 import { getSnackshopOpeningHours } from '@/lib/PrismaService'
-
-interface SnackshopOpeningHours {
-  id: string
-  day: string
-  opening: string
-  closure: string
-  order: number
-  createdAt: Date
-  updatedAt: Date
-}
 
 export async function OpeningHoursTable() {
   getSnackshopOpeningHours()
