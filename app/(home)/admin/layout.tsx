@@ -9,10 +9,10 @@ export default function RootLayout({
 }) {
   const [isOpen, setIsOpen] = useState(true)
   return (
-    <html lang="en">
+    <html lang="pt-br" suppressHydrationWarning>
       <body>
         <div className="flex flex-row">
-          <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} className="fixed" />
+          {/* <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} className="fixed" /> */}
           <main
             className={`transition-all duration-500 ${isOpen ? 'pl-[300px]' : 'pl-[95px]'}`}
           >
