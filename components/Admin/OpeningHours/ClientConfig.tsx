@@ -1,10 +1,14 @@
 'use client'
 import { EditOpeningHours } from '@/components/Admin/OpeningHours/EditOpeningHourrs'
-import { OpeningHoursTable } from '@/components/Admin/OpeningHours/OpeningHoursTable'
+import { SnackshopOpeningHours } from '@/components/SnackshopOpeningHours'
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-export default function Config() {
+export default function ClientConfig({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const [modalEditOpeningHoursStatus, setModalEditOpeningHourStatus] =
     useState(false)
 
@@ -17,7 +21,8 @@ export default function Config() {
         <Button onClick={() => setModalEditOpeningHourStatus(true)}>
           Configurar abertura de horários
         </Button>
-        <OpeningHoursTable />
+        {children}
+        <SnackshopOpeningHours />
         <EditOpeningHours
           modalStatus={modalEditOpeningHoursStatus}
           setModalStatus={setModalEditOpeningHourStatus}

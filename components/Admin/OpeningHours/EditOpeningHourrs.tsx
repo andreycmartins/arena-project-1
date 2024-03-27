@@ -3,14 +3,12 @@ import { X } from 'lucide-react'
 
 interface EditOpeningHoursProps {
   modalStatus: boolean
-  // openingHourId: string
   setModalStatus: (status: boolean) => void
 }
 
 export function EditOpeningHours({
   modalStatus,
   setModalStatus,
-  // openingHourId,
 }: EditOpeningHoursProps) {
   return (
     <>

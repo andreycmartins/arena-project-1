@@ -6,14 +6,21 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { db } from '@/lib/prisma'
+import { getSnackshopOpeningHours } from '@/lib/PrismaService'
 
-export async function OpeningHours() {
-  const snackshopOpeningHours = await db.snackshopOpeningHours.findMany({
-    orderBy: {
-      order: 'asc',
-    },
-  })
+interface SnackshopOpeningHours {
+  id: string
+  day: string
+  opening: string
+  closure: string
+  order: number
+  createdAt: Date
+  updatedAt: Date
+}
+
+export async function OpeningHoursTable() {
+  getSnackshopOpeningHours()
+
   return (
     <div className="flex flex-col items-center">
       <h1>Horário de funcionamento</h1>
@@ -26,7 +33,7 @@ export async function OpeningHours() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {snackshopOpeningHours.map((snackshopOpeningHour) => (
+          {/* {snackshopOpeningHours?.map((snackshopOpeningHour) => (
             <TableRow key={snackshopOpeningHour.day}>
               <TableCell className="font-medium">
                 {snackshopOpeningHour.day}
@@ -34,7 +41,7 @@ export async function OpeningHours() {
               <TableCell>{snackshopOpeningHour.opening}</TableCell>
               <TableCell>{snackshopOpeningHour.closure}</TableCell>
             </TableRow>
-          ))}
+          ))} */}
         </TableBody>
       </Table>
     </div>

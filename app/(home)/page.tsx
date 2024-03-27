@@ -1,7 +1,7 @@
 'use client'
 
 import CardImage from '@/components/CardImage'
-import { OpeningHours } from '@/components/OpeningHours'
+import { SnackshopOpeningHours } from '@/components/SnackshopOpeningHours'
 import { SnackshopMenuTable } from '@/components/SnackshopMenuTable'
 import { Card, Inset, Strong, Text } from '@radix-ui/themes'
 import Image from 'next/image'
@@ -46,7 +46,7 @@ export default function Home() {
         <div className="flex flex-col gap-3 bg-gray-500">
           <h1 className="text-center">Petiscaria</h1>
           <div className="flex flex-row gap-3">
-            <OpeningHours />
+            <SnackshopOpeningHours />
             <SnackshopMenuTable />
           </div>
         </div>

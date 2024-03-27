@@ -14,7 +14,7 @@ export default function RootLayout({
         <div className="flex flex-row">
           <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} className="fixed" />
           <main
-            className={`transition-all duration-500 ${isOpen ? 'pl-[295px]' : 'pl-[90px]'}`}
+            className={`transition-all duration-500 ${isOpen ? 'pl-[300px]' : 'pl-[95px]'}`}
           >
             {children}
           </main>
